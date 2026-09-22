@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f9fc;
+  --foreground: #172033;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f3f6fb;
+  --border: #e2e8f0;
+  --muted: #64748b;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -12,15 +18,118 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
+  min-width: 320px;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+* {
+  border-color: var(--border);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea {
+  color-scheme: light;
+  background-color: var(--surface) !important;
+  color: var(--foreground);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+select option,
+select optgroup {
+  background: #ffffff;
+  color: var(--foreground);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.65;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground);
+  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #f1f5f9;
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+::selection {
+  background: rgb(37 99 235 / 0.18);
+  color: #172033;
+}
+
+/* Shared compatibility layer for the existing utility vocabulary. */
+.bg-slate-950 { background-color: #ffffff !important; }
+.bg-slate-900 { background-color: #ffffff !important; }
+.bg-slate-950\/95, .bg-slate-950\/98, .bg-slate-950\/90,
+.bg-slate-900\/80, .bg-slate-900\/90, .bg-slate-900\/85,
+.bg-slate-900\/70, .bg-slate-900\/60 { background-color: #ffffff !important; }
+.bg-slate-800 { background-color: #f8fafc !important; }
+.bg-slate-700 { background-color: #f1f5f9 !important; }
+.text-white { color: #172033 !important; }
+.text-slate-100, .text-slate-200, .text-slate-300 { color: #334155 !important; }
+.text-slate-400, .text-slate-500 { color: #64748b !important; }
+.text-slate-400 { color: #475569 !important; }
+.text-slate-500 { color: #526175 !important; }
+.text-slate-600 { color: #475569 !important; }
+.text-sky-200, .text-sky-300 { color: #0369a1 !important; }
+.text-blue-200, .text-blue-300 { color: #1d4ed8 !important; }
+.text-emerald-100, .text-emerald-200 { color: #047857 !important; }
+.text-rose-100, .text-rose-200 { color: #be123c !important; }
+.text-amber-100, .text-amber-200 { color: #b45309 !important; }
+.text-violet-200 { color: #6d28d9 !important; }
+.text-fuchsia-200 { color: #a21caf !important; }
+.text-cyan-200 { color: #0e7490 !important; }
+.text-pink-200 { color: #be185d !important; }
+.placeholder\:text-slate-400::placeholder { color: #64748b !important; }
+.border-slate-700, .border-slate-800 { border-color: #e2e8f0 !important; }
+.border-white\/10 { border-color: #e2e8f0 !important; }
+.bg-white\/5 { background-color: #f8fafc !important; }
+.bg-white\/10 { background-color: #f1f5f9 !important; }
+.hover\:bg-slate-800:hover, .hover\:bg-slate-700:hover { background-color: #eff6ff !important; }
+.hover\:text-white:hover { color: #1d4ed8 !important; }
+.shadow-slate-950\/30, .shadow-black\/40, .shadow-black\/60 { --tw-shadow-color: rgb(15 23 42 / 0.10) !important; }
